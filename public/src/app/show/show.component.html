@@ -1,0 +1,20 @@
+
+<h2>Product Details</h2>
+<!-- <button [routerLink]="['/addReview/',updatedRestaurant._id">New Review</button> -->
+<!-- <button [routerLink]="['/restaurants/' + restaurantId + '/review']">New Review</button> -->
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Quantity</td>
+        <td>Price</td>
+    </tr>
+    <tr>
+        <td>{{updatedRestaurant['name']}}</td>
+        <td>{{updatedRestaurant['quantity']}}</td>
+        <td>${{updatedRestaurant['price']}}</td>
+    </tr>
+
+</table>
+
+<button (click)="goHome()">Back</button>
+<button [disabled]='updatedRestaurant.quantity !== 0' (click)="deleteRestaurant(restaurantId); goHome()">Delete</button>

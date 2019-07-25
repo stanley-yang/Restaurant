@@ -1,0 +1,20 @@
+
+<h2>New Product</h2>
+    <span *ngIf="this.newproduct.err">Duplicate Name!</span>
+    <form #editForm="ngForm">
+       
+        
+        <p>Product Name
+            <input name ="name" required minlength="3" #name = "ngModel" [(ngModel)]="newproduct.name"> <span *ngIf="!name.valid">Please enter a name at least three characters long</span>
+        </p>
+        <p>Quantity
+            <input type="number" pattern="^$|^([0-9]|[1-9][0-9]|[1][0-9][0-9]|[1][0-9][0-9]|[1][0-9][0-9][0-9]|[1][0-9][0-9][0-9][0-9])?" name="quantity" required min="0" #quantity = "ngModel" [(ngModel)]="newproduct.quantity"> <span *ngIf="!quantity.valid">Please enter a quantity greater or equal to 0</span>
+        </p>
+        <p>Price
+            <input type="number" pattern="^$|^([0-9]|[1-9][0-9]|[1][0-9][0-9]|[1][0-9][0-9]|[1][0-9][0-9][0-9]|[1][0-9][0-9][0-9][0-9])?" name="price" required  min="0" #price = "ngModel" [(ngModel)]="newproduct.price"> <span *ngIf="!price.valid">Please enter a price greater or equal to $0</span>
+            </p>
+        
+        <button (click)="goHome()">Cancel</button>
+        <button [disabled]='!editForm.valid' (click)="createProduct()">Create</button>
+        
+    </form>

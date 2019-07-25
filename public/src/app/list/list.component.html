@@ -1,0 +1,27 @@
+<button [routerLink]="['/create']">Add New Product</button>
+<br>
+<br>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+<tr *ngFor="let prod of products">
+        <td>{{prod['_id']}}</td>
+        <td>{{prod['name']}}</td>
+        <td>{{prod['quantity']}}</td>
+        <td>${{prod['price']}}</td>
+        <td>
+            
+            <button (click)="productsId=prod._id; showEdit=true">Update</button>
+            <button [routerLink]="['/products/',prod._id]">Details</button>
+            <!-- <button (click)="deleteRestaurant(prod._id)">Delete</button> -->
+            
+        </td>
+    </tr>
+</table>
+<app-edit (newItemEvent)="addItem($event)" *ngIf="showEdit" [restId]="productsId"></app-edit>

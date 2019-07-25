@@ -1,0 +1,19 @@
+<h2>Edit a restaurant</h2>
+
+<form #editForm="ngForm">
+    <p>Name
+        <input name ="name"  required minlength="3" #name = "ngModel" [(ngModel)]="updatedRestaurant.name"> <span *ngIf="!name.valid">Please enter a name at least three characters long</span>
+        <!-- <input name="name" [(ngModel)]="updatedRestaurant.name"> -->
+    </p>
+    <p>Quantity
+        <input type="number" pattern="^$|^([0-9]|[1-9][0-9]|[1][0][0])?" name="quantity" required #quantity = "ngModel" [(ngModel)]="updatedRestaurant.quantity"> <span *ngIf="!quantity.valid">Please enter a cuisine type at least three characters long</span>
+        <!-- <input name="cuisine" [(ngModel)]="updatedRestaurant.cuisine"> -->
+    </p>
+    <p>Price
+            <input type="number" pattern="^$|^([0-9]|[1-9][0-9]|[1][0][0])?" name="price" required #price = "ngModel" [(ngModel)]="updatedRestaurant.price"> <span *ngIf="!price.valid">Please enter a cuisine type at least three characters long</span>
+            <!-- <input name="cuisine" [(ngModel)]="updatedRestaurant.cuisine"> -->
+        </p>
+    <button (click)="getOneRestaurant()">Reset</button>
+    <button [routerLink]="['/restaurants']" [disabled]='!editForm.valid' (click)="updateRestaurant(); hideEdit(false)">Update</button>
+</form>
+

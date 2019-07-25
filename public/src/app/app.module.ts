@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { ShowComponent } from './show/show.component';
-// import { ReviewComponent } from './review/review.component';
+import { ReviewComponent } from './review/review.component';
 import { ListComponent } from './list/list.component';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { ListComponent } from './list/list.component';
     CreateComponent,
     EditComponent,
     ShowComponent,
-    // ReviewComponent,
+    ReviewComponent,
     ListComponent
   ],
   imports: [

@@ -39,5 +39,17 @@ module.exports = {
         Restaurant.findByIdAndDelete(req.params.id)
                 .then(data =>res.json(data))
                 .catch(err =>res.json(err))
-    },    
+    },
+
+    addReview : (req, res) => {
+        Restaurant.findByIdAndUpdate(req.params.id, {$push: {reviews: req.body}})
+        .then(data =>res.json(data))
+        .catch(err =>res.json(err))
+    },
+
+    allReviews : (req, res) => {
+        Restaurant.findById(req.params.id)
+    }
+
+    
 }
